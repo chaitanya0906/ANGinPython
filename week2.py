@@ -57,16 +57,13 @@ X=np.hstack((np.ones((m,1)), X))
 y=y[:,np.newaxis]
 theta = np.zeros((n+1,1)) 
 
-J=computeCost(theta,X,y)
+J=computeCost(theta,X,y,0)
 print(J)
 
 print(gradient(theta,X,y))
 
-theta, mincost = optimizeTheta(theta,X,y)
+theta, mincost = optimizeTheta(theta,X,y,0)
 
-
-boundary_xs = np.array([np.min(X[:,1]), np.max(X[:,1])])
-boundary_ys = (-1./theta[2])*(theta[0] + theta[1]*boundary_xs)
 
 mask = yold ==1
 adm = plt.scatter(Xold[mask][0].values,Xold[mask][1].values)
